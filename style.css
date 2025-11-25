@@ -1,0 +1,245 @@
+/* Full page background */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000000;
+  font-family: Arial;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Calculator box */
+.calculator {
+  background: #111111;
+  padding: 20px;
+  border-radius: 15px;
+  width: 260px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+}
+
+/* Display */
+#display {
+  width: 100%;
+  height: 60px;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: right;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #cfcfcf;  /* ASH COLOR */
+  color: #000000;       /* Black text */
+  box-shadow: inset 0px 0px 8px rgba(0,0,0,0.4);
+}
+
+
+/* Button grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Base style for all buttons */
+button {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: bold;
+  color: white;
+}
+
+/* --- COLOR BUTTONS --- */
+
+/* C (Clear) = RED */
+button:nth-child(1) {
+  background: #e84118;
+}
+button:nth-child(1):hover {
+  background: #ff6b6b;
+}
+
+/* DEL = ORANGE */
+button:nth-child(2) {
+  background: #f39c12;
+}
+button:nth-child(2):hover {
+  background: #f1c40f;
+}
+
+/* % and / = Blue operators */
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12),
+button:nth-child(16) {
+  background: #0984e3;
+}
+button:nth-child(3):hover,
+button:nth-child(4):hover,
+button:nth-child(8):hover,
+button:nth-child(12):hover,
+button:nth-child(16):hover {
+  background: #74b9ff;
+}
+
+/* Number buttons = Dark grey */
+button:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(8)):not(:nth-child(12)):not(:nth-child(16)):not(:nth-last-child(2)) {
+  background: #333333;
+}
+button:hover {
+  transform: scale(1.07);
+}
+
+/* = (Equals) = GREEN */
+button:nth-last-child(2) {
+  background: #2ecc71;
+}
+button:nth-last-child(2):hover {
+  background: #55efc4;
+}
+
+/* History panel */
+.history-panel {
+  width: 250px;
+  height: 350px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 15px;
+  overflow-y: auto;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+  color: white;
+}
+
+.history-panel h3 {
+  text-align: center;
+}
+
+/* History list */
+#historyList li {
+  background: #333333;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: 0px 0px 5px rgba(255,255,255,0.1);
+}
+
+/* Clear History button */
+#clearHistory {
+  width: 100%;
+  padding: 10px;
+  background: #d63031;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+#clearHistory:hover {
+  background: #ff7675;
+}
+/* -------------------------------------------------
+   RESPONSIVE DESIGN
+   ------------------------------------------------- */
+
+/* Tablets & iPads (screen width up to ±900px) */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .history-panel {
+    width: 90%;
+    height: 250px;
+  }
+
+  .calculator {
+    width: 90%;
+  }
+
+  #display {
+    font-size: 24px;
+    height: 55px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+/* Phones (screen width up to ±600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    height: auto;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .calculator {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #display {
+    height: 55px;
+    font-size: 22px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  .history-panel {
+    width: 100%;
+    height: 200px;
+  }
+
+  #clearHistory {
+    padding: 8px;
+    font-size: 15px;
+  }
+}
+
+/* Very Small Phones (below 360px width) */
+@media (max-width: 360px) {
+  button {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  #display {
+    font-size: 20px;
+    height: 50px;
+  }
+
+  .calculator {
+    padding: 10px;
+  }
+}
+
